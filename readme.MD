@@ -10,7 +10,7 @@
       <tr class="row-odd">
          <td>1.</td>
          <td>Transumance</td>
-         <td style="text-align:center"><a href="https://colab.research.google.com/github/un-fao/FAO-Water-Applications/Transhumance"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"/></a></td>
+         <td style="text-align:center"><a href="https://colab.research.google.com/github/un-fao/FAO-Water-Applications/blob/main/Transhumance/Transhumance.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"/></a></td>
       </tr>
    </tbody>
 </table>
