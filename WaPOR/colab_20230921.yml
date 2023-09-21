@@ -1,0 +1,11 @@
+# run: conda env create --file colab_20230921.yml
+name: colab_20230921
+dependencies:
+- python==3.10.12
+- ipykernel
+- pip
+- earthengine-api==0.1.368
+- requests==2.31.0
+- numpy==1.23.5
+- matplotlib==3.7.1
+- gdal==3.4.3
