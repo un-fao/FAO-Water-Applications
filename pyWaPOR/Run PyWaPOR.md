@@ -107,3 +107,12 @@ et_look = project.run_et_look()
 	- Long queued CDS request => check **project_folder/ERA5/CDS_log.txt**
 - Configuration error: 
 	- Missing/invalid values (e.g. product name, method name) => Check documentation and source
+---
+# Custom parameters
+- Changing model parameters (or entire variables) can be done in between the `project.run_pre_se_root()` and `project.run_se_root()` steps (same goes for `et_look`) by making changes to the `xarray.Dataset` returned by `project.run_pre_se_root` (and stored at `project.se_root_in`):
+```Python
+print(se_root_in["r0_bare"].values)
+se_root_in["r0_bare"] = 0.32
+print(se_root_in["r0_bare"].values)
+print(project.se_root_in["r0_bare"].values)
+```
