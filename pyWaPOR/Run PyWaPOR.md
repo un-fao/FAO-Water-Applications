@@ -98,7 +98,7 @@ et_look = project.run_et_look()
 # Debugging
 - Check error message in **project_folder/log.txt**
 - Try to understand and fix errors. 
-- OR give up and report as an [issue](https://bitbucket.org/cioapps/pywapor/issues?status=new&status=open) on bitbucket repository
+- OR give up and report as an [issue](https://bitbucket.org/cioapps/pywapor/issues) on bitbucket repository
 ---
 ### Common errors:
 - Server issues: 
