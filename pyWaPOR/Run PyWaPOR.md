@@ -43,11 +43,21 @@ project = pywapor.Project(project_folder, bb, period)
 ```
 ---
 ## Step 2: Configure input data
-- List of data products supported: https://www.fao.org/aquastat/py-wapor/data_sources.html 
-- List of default configurations: https://bitbucket.org/cioapps/pywapor/src/master/pywapor/configs/ 
+You can choose a default configuration or customize one. 
+### Default configurations 
+For example, the input configuragion for WaPOR3 Level 3 can be set as follows:
 ```Python
 project.load_configuration(name = "WaPOR3_level_3")
 ```
+See the list of default configurations: https://bitbucket.org/cioapps/pywapor/src/master/pywapor/configs/ 
+
+---
+### Custom configurations
+For a custom configuration, you need to create a python dictionary including the data product name for each type of input data.
+The downloading tool only supports certain data products. See the list of data products supported: https://www.fao.org/aquastat/py-wapor/data_sources.html. 
+When defining a custom configuration, you need to use a valid product name from this list. 
+
+Using other data products that are not supported is also possible via [sideloading](https://colab.research.google.com/github/un-fao/FAO-Water-Applications/blob/main/pyWaPOR/sideload.ipynb). However, the documentation for sideloading using version 3.5 is not yet available.
 
 ---
 - Custom configuration example
@@ -71,8 +81,9 @@ summary = {
 project.load_configuration(summary = summary)
 ```
 ---
-- Save configuration
+- Save configuration 
 ```Python
+import os
 project.configuration.to_json(os.path.join(project_folder,"configuration.json"))
 ```
 ---
