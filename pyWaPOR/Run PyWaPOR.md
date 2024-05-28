@@ -71,7 +71,8 @@ summary = {
 				#{'lmbdas': 1000.0,'method': 'whittaker'}, #whittaker interpolation takes too long 
                             'VIIRSL1.VNP02IMG':
 				{'method':'linear'},
-				#{'a': 0.85,'lmbdas': 1000.0,'method': 'whittaker'}}, #whittaker interpolation takes too long 
+				#{'a': 0.85,'lmbdas': 1000.0,'method': 'whittaker'}}, #whittaker interpolation takes too long
+				},
             'elevation': {'COPERNICUS.GLO30'},
             'meteorological': {'GEOS5.inst3_2d_asm_Nx'},
             'optical': {'SENTINEL2.S2MSI2A_R20m'},
