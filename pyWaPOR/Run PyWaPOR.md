@@ -36,11 +36,9 @@ conda create -n pywapor_env -c conda-forge pywapor
 	- Start date, end date
 ---
 ```Python
-project_folder = r"Test_240523"
-bb = [33.1479429498060583, 14.2657100971198449, 33.2874918465625242, 14.3487734799492763] 
-# [xmin, ymin, xmax, ymax] #Wad_Helal
-# period = ["2022-10-01", "2023-04-30"] #cannot download full season at the moment due to one corrupted VIIRS scene
-period = ["2022-10-01", "2022-10-31"]
+project_folder = r"Test_240523" #Path to folder
+bb = [33.1479429498060583, 14.2657100971198449, 33.2874918465625242, 14.3487734799492763] # [xmin, ymin, xmax, ymax] #Wad_Helal
+period = ["2022-10-01", "2023-04-30"] 
 # Set up a project.
 project = pywapor.Project(project_folder, bb, period)
 ```
