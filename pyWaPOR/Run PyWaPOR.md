@@ -11,7 +11,9 @@ conda create -n pywapor_env -c conda-forge pywapor
 ```
 ---
 ### Create user accounts at
-- [https://urs.earthdata.nasa.](https://www.google.com/url?q=https%3A%2F%2Furs.earthdata.nasa.gov)[gov](https://www.google.com/url?q=https%3A%2F%2Furs.earthdata.nasa.gov) (MODIS, SRTM, CHIRPS and MERRA2)
+- [https://urs.earthdata.nasa.gov](https://urs.earthdata.nasa.gov/) (MODIS, SRTM, CHIRPS, MERRA2, and VIIRS)
+	- Go to Applications > Authorized Apps
+   	- Add 'NASA GESDISC DATA ARCHIVE' and 'LP DAAC OPeNDAP' to the list by clicking [![Button]][Link]
 - [https://viewer.terrascope.be](https://viewer.terrascope.be)(PROBA-V)
 - [https://cds.climate.copernicus.eu](https://cds.climate.copernicus.eu) (ERA5 and AgERA5)
 - [https://earthexplorer.usgs.gov](https://earthexplorer.usgs.gov) (Landsat)
@@ -45,15 +47,17 @@ project = pywapor.Project(project_folder, bb, period)
 ---
 ## Step 2: Configure input data
 You can choose a default configuration or customize one. 
-### Default configurations 
+### Option 1: Default configurations 
 For example, the input configuragion for WaPOR3 Level 3 can be set as follows:
 ```Python
 project.load_configuration(name = "WaPOR3_level_3")
 ```
 See the list of default configurations: https://bitbucket.org/cioapps/pywapor/src/master/pywapor/configs/ 
 
+⚠ WARNING: WaPOR3 default configurations might fail or take long time to download due to long queued ERA5 request.
+
 ---
-### Custom configurations
+### Option 2: Custom configurations
 For a custom configuration, you need to create a python dictionary including the data product name for each type of input data.
 The downloading tool only supports certain data products. See the list of data products supported: https://www.fao.org/aquastat/py-wapor/data_sources.html. 
 When defining a custom configuration, you need to use a valid product name from this list. 
@@ -119,11 +123,16 @@ et_look = pywapor.et_look.main(et_look_in, et_look_version = 'v3', chunks = {"ti
 ---
 ### Common errors:
 - Server issues: 
-	- Incorrect authentication
+	- Incorrect authentication => reset account and passwords
+		```Python
+		pywapor.collect.accounts.setup('NASA')
+		```
 	- Gateway error, Timeout, etc.
 	- Long queued CDS request => check **project_folder/ERA5/CDS_log.txt**
 - Configuration error: 
 	- Missing/invalid values (e.g. product name, method name) => Check documentation and source
+---
+- Used all available RAM => use chunksize
 ---
 # Custom parameters
 - Changing model parameters (or entire variables) can be done in between the `project.run_pre_se_root()` and `project.run_se_root()` steps (same goes for `et_look`) by making changes to the `xarray.Dataset` returned by `project.run_pre_se_root` (and stored at `project.se_root_in`):
@@ -133,3 +142,7 @@ se_root_in["r0_bare"] = 0.32
 print(se_root_in["r0_bare"].values)
 print(project.se_root_in["r0_bare"].values)
 ```
+
+---
+[Button]: https://img.shields.io/badge/APPROVE_MORE_APPLICATIONS-blue?style=for-the-badge
+[Link]: https://urs.earthdata.nasa.gov/application_search 
