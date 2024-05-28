@@ -127,12 +127,14 @@ et_look = pywapor.et_look.main(et_look_in, et_look_version = 'v3', chunks = {"ti
 		```Python
 		pywapor.collect.accounts.setup('NASA')
 		```
-	- Gateway error, Timeout, etc.
-	- Long queued CDS request => check **project_folder/ERA5/CDS_log.txt**
+	- Gateway error, Timeout, etc. => check internet connection, no fix
+	- Long queued CDS request => check **project_folder/ERA5/CDS_log.txt**, no fix
 - Configuration error: 
 	- Missing/invalid values (e.g. product name, method name) => Check documentation and source
 ---
-- Used all available RAM => use chunksize
+- Used all available RAM => optimize chunksize
+- NameError: Could not download url => check the printed url in the error message
+- Empty downloaded files => delete, and re-run
 ---
 # Custom parameters
 - Changing model parameters (or entire variables) can be done in between the `project.run_pre_se_root()` and `project.run_se_root()` steps (same goes for `et_look`) by making changes to the `xarray.Dataset` returned by `project.run_pre_se_root` (and stored at `project.se_root_in`):
