@@ -37,7 +37,8 @@ conda create -n pywapor_env -c conda-forge pywapor
 project_folder = r"Test_240523"
 bb = [33.1479429498060583, 14.2657100971198449, 33.2874918465625242, 14.3487734799492763] 
 # [xmin, ymin, xmax, ymax] #Wad_Helal
-period = ["2022-10-01", "2023-04-30"]
+# period = ["2022-10-01", "2023-04-30"] #cannot download full season at the moment due to one corrupted VIIRS scene
+period = ["2022-10-01", "2022-10-31"]
 # Set up a project.
 project = pywapor.Project(project_folder, bb, period)
 ```
@@ -65,10 +66,12 @@ Using other data products that are not supported is also possible via [sideloadi
 summary = {
             '_ENHANCE_': {"bt": ["pywapor.enhancers.dms.thermal_sharpener.sharpen"],},
             '_EXAMPLE_': 'SENTINEL2.S2MSI2A_R20m',
-            '_WHITTAKER_': {'SENTINEL2.S2MSI2A_R20m':  
-					            {'lmbdas': 1000.0,                                             'method': 'whittaker'},
-                            'VIIRSL1.VNP02IMG': 
-								{'a': 0.85,'lmbdas': 1000.0,                                   'method': 'whittaker'}},
+            '_WHITTAKER_': {'SENTINEL2.S2MSI2A_R20m':
+				{'method':'linear'},
+				#{'lmbdas': 1000.0,'method': 'whittaker'}, #whittaker interpolation takes too long 
+                            'VIIRSL1.VNP02IMG':
+				{'method':'linear'},
+				#{'a': 0.85,'lmbdas': 1000.0,'method': 'whittaker'}}, #whittaker interpolation takes too long 
             'elevation': {'COPERNICUS.GLO30'},
             'meteorological': {'GEOS5.inst3_2d_asm_Nx'},
             'optical': {'SENTINEL2.S2MSI2A_R20m'},
@@ -103,7 +106,9 @@ datasets = project.download_data()
 se_root_in = project.run_pre_se_root()
 se_root = project.run_se_root()
 et_look_in = project.run_pre_et_look()
-et_look = project.run_et_look()
+#et_look = project.run_et_look() #no custom chunksize available yet in version 3.5.2
+# run et_look with custom chunksize
+et_look = pywapor.et_look.main(et_look_in, et_look_version = 'v3', chunks = {"time_bins": 1, "x": 1000, "y": 1000})
 ```
 ---
 # Debugging
