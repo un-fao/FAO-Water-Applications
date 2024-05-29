@@ -26,9 +26,18 @@ mamba create -n pywapor_env pywapor
 ## Choose your working environment
 - Cloud computer
 	- Google Colab (free with some [limits](https://research.google.com/colaboratory/faq.html#idle-timeouts))
+```Python
+pip install pywapor
+```
+---
 - Your own computer
 	- Jupyter notebook (need to be installed to python environment)
 	- Python console (CLI)
+```cmd
+conda activate pywapor_env
+OR
+mamba activate pywapor_env
+```
 ---
 ## Step 1: Choose your study case
 - Region of interest
