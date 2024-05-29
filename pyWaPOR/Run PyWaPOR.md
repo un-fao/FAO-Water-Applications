@@ -31,13 +31,19 @@ pip install pywapor
 ```
 ---
 - Your own computer
+	```cmd
+	conda activate pywapor_env
+	#OR
+	mamba activate pywapor_env
+	```
 	- Jupyter notebook (need to be installed to python environment)
+	 	```cmd
+		conda install jupyterlab
+		#OR
+		mamba install jupyterlab	
+	  	```
 	- Python console (CLI)
-```cmd
-conda activate pywapor_env
-OR
-mamba activate pywapor_env
-```
+		
 ---
 ## Step 1: Choose your study case
 - Region of interest
