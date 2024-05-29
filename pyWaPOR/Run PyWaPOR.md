@@ -5,9 +5,11 @@
 ---
 ## What's needed
 - Python >=3.7
-- Install pywapor using [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html)
+- Install pywapor using [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html) or [miniforge](https://github.com/conda-forge/miniforge). See [tutorial](https://courses.gisopencourseware.org/mod/book/view.php?id=430&chapterid=1427)
 ```cmd
 conda create -n pywapor_env -c conda-forge pywapor
+## OR
+mamba create -n pywapor_env pywapor
 ```
 ---
 ### Create user accounts at
