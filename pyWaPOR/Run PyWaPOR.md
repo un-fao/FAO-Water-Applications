@@ -63,7 +63,7 @@ project = pywapor.Project(project_folder, bb, period)
 ## Step 2: Configure input data
 You can choose a default configuration or customize one. 
 ### Option 1: Default configurations 
-For example, the input configuragion for WaPOR3 Level 3 can be set as follows:
+For example, the input configuration for WaPOR3 Level 3 can be set as follows:
 ```Python
 project.load_configuration(name = "WaPOR3_level_3")
 ```
