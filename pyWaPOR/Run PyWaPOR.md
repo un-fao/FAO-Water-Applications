@@ -53,6 +53,7 @@ pip install pywapor
 	- Start date, end date
 ---
 ```Python
+import pywapor
 project_folder = r"Test_240523" #Path to folder
 bb = [33.1479429498060583, 14.2657100971198449, 33.2874918465625242, 14.3487734799492763] # [xmin, ymin, xmax, ymax] #Wad_Helal
 period = ["2022-10-01", "2023-04-30"] 
