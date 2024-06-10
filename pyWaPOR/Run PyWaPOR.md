@@ -145,7 +145,8 @@ et_look = pywapor.et_look.main(et_look_in, et_look_version = 'v3', chunks = {"ti
 		```Python
 		pywapor.collect.accounts.setup('NASA')
 		```
-	- Gateway error, Timeout, etc. => check internet connection, no fix
+	- "Server error 502 Server Error: Bad Gateway" => seems to happen when using one user account to request data in more than one processes. Make sure you are downloading data in only one place.
+	- Timeout, etc. => check internet connection, no fix
 	- Long queued CDS request => check **project_folder/ERA5/CDS_log.txt**, no fix
 - Configuration error: 
 	- Missing/invalid values (e.g. product name, method name) => Check documentation and source
