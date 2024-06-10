@@ -138,6 +138,8 @@ et_look = pywapor.et_look.main(et_look_in, et_look_version = 'v3', chunks = {"ti
 - OR give up and report as an [issue](https://bitbucket.org/cioapps/pywapor/issues) on bitbucket repository
 ---
 ### Common errors:
+- Installation errors:
+	- GDAL DLL: see this https://gis.stackexchange.com/questions/430538/importing-gdal-in-qgis-and-pycharm-not-working/456857#456857  
 - Server issues: 
 	- Incorrect authentication => reset account and passwords
 		```Python
